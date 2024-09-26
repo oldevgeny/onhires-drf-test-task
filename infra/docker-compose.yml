@@ -1,0 +1,49 @@
+services:
+  db:
+    container_name: onhires_drf_test_task_db
+    image: mysql:8.4.2
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_HOST: '%'
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 2
+      start_period: 0s
+    ports:
+      - "3124:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - drf_network
+    env_file:
+      - ../.env.local
+  web:
+    container_name: onhires_drf_test_task_web
+    restart: always
+    build:
+      context: ..
+      dockerfile: ./infra/Dockerfile
+    command: poetry run python /app/onhires_drf_test_task/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ..:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - drf_network
+    env_file:
+      - ../.env.local
+
+volumes:
+  db_data:
+
+networks:
+  drf_network:
+    driver: bridge
