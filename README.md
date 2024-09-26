@@ -8,6 +8,7 @@ This is a Django REST Framework (DRF) API server that provides endpoints to mana
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
+    - [Using Docker (Recommended)](#using-docker-recommended)
 - [Usage](#usage)
   - [API Endpoints](#api-endpoints)
   - [Pagination, Sorting, and Filtering](#pagination-sorting-and-filtering)
@@ -42,7 +43,9 @@ This is a Django REST Framework (DRF) API server that provides endpoints to mana
 
 ## Installation
 
-Using Docker (Recommended)
+### Using Docker (Recommended)
+
+###### Tested on: MacOS Sequoia 15.0 (24A335) with Apple Silicon chip
 
 1. Clone the Repository:
 
@@ -96,6 +99,12 @@ The API server will be running at http://localhost:8000/.
 
 
 ## Usage
+
+Use the following command for help:
+
+```bash
+make help
+```
 
 ### API Endpoints
 
