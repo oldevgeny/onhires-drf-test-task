@@ -11,6 +11,10 @@ This is a Django REST Framework (DRF) API server that provides endpoints to mana
     - [Using Docker (Recommended)](#using-docker-recommended)
 - [Usage](#usage)
   - [API Endpoints](#api-endpoints)
+    - [Wallets](#wallets)
+    - [Transactions](#transactions)
+    - [Notes](#notes)
+  - [Swagger Documentation](#swagger-documentation)
   - [Pagination, Sorting, and Filtering](#pagination-sorting-and-filtering)
   - [Testing](#testing)
   - [Examples of API Requests with cURL](#examples-of-api-requests-with-curl)
@@ -116,7 +120,7 @@ make help
 - Update a Wallet: PUT /wallets/{id}/
 - Delete a Wallet: DELETE /wallets/{id}/
 
-#### Fields:
+**Fields:**
 - id: Auto-increment primary key.
 - label: String field.
 - balance: Non-negative numeric field.
@@ -128,13 +132,13 @@ make help
 - Update a Transaction: PUT /transactions/{id}/
 - Delete a Transaction: DELETE /transactions/{id}/
 
-#### Fields:
+**Fields:**
 - id: Auto-increment primary key.
 - wallet: Foreign key to Wallet.
 - txid: Unique string identifier.
 - amount: Numeric field with 18-digit precision (can be negative).
 
-#### Notes:
+#### Notes
 - Creating or updating a transaction adjusts the associated wallet’s balance.
 - Wallet balance cannot be negative. Transactions that would result in a negative balance are rejected.
 
@@ -147,6 +151,10 @@ _Example:_ GET /wallets/?page=2
 _Example:_ GET /wallets/?ordering=balance
 - Filtering: Use query parameters to filter results.
 _Example:_ GET /wallets/?balance_min=100&balance_max=500
+
+### Swagger Documentation
+
+The API documentation is available at http://localhost:8000/swagger/
 
 ### Testing
 

@@ -17,6 +17,8 @@ django-mysql = "^4.14.0"
 django-filter = "^24.3"
 pydantic-settings = "^2.5.2"
 pymysql = "^1.1.1"
+drf-yasg = "^1.21.7"
+setuptools = "^75.1.0"
 
 
 [build-system]

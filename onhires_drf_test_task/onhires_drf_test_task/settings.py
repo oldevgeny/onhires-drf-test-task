@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "wallet",
     "django_filters",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
