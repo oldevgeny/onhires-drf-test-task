@@ -40,7 +40,7 @@ This is a Django REST Framework (DRF) API server that provides endpoints to mana
 
 ## Requirements
 
-- Python 3.11 or newer
+- Python 3.12 or newer
 - MySQL database
 - Docker and Docker Compose (optional, for quick start)
 - Poetry for dependency management
