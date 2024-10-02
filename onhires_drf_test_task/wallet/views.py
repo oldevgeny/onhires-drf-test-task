@@ -1,9 +1,12 @@
 import typing
+from decimal import Decimal
 
+from django.db import DatabaseError, transaction
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from rest_framework.filters import OrderingFilter
 from rest_framework.request import Request
+from rest_framework.response import Response
 
 from . import filters, models, serializers
 from .models import Wallet
@@ -17,15 +20,6 @@ class WalletViewSet(viewsets.ModelViewSet):
     filterset_class = filters.WalletFilter
     filterset_fields: typing.ClassVar = ["label", "balance"]
     ordering: typing.ClassVar = ["id"]
-
-
-from decimal import Decimal
-
-from django.db import DatabaseError, transaction
-from rest_framework import status, viewsets
-from rest_framework.response import Response
-
-from . import models, serializers
 
 
 class TransactionViewSet(viewsets.ModelViewSet):
