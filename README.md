@@ -1,4 +1,4 @@
-# OnHires DRF Test Task
+# DRF Test Task
 
 This is a Django REST Framework (DRF) API server that provides endpoints to manage Wallet and Transaction models, complete with capabilities for pagination, sorting, and filtering. The project utilizes Python 3.12, Django, MySQL, and adheres to best practices in API development.
 
